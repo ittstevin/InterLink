@@ -1,2 +1,2 @@
-# InterL-ink
+# InterLink
 chat app
