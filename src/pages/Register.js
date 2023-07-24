@@ -64,7 +64,7 @@ const Register = () => {
     <div className="formContainer">
       <div className="formWrapper">
         <span className="logo">InterL!nk</span>
-        <span className="title">Register</span>
+        <span className="title">Sign up</span>
         <form onSubmit={handleSubmit}>
           <input required type="text" placeholder="username" />
           <input required type="email" placeholder="email" />
@@ -75,11 +75,11 @@ const Register = () => {
             <span>Add an avatar</span>
           </label>
           <button disabled={loading}>Sign up</button>
-          {loading && "Uploading and compressing the image please wait..."}
-          {err && <span>Something went wrong</span>}
+          {loading && <p className="loading-message">Hold on as we create and account for you...</p>}
+          {err && <p className="error-message">Ooops... looks like something went wrong</p>}
         </form>
         <p>
-          You do have an account? <Link to="/register">Login</Link>
+          You do have an account? <Link to="/Login">Login</Link>
         </p>
       </div>
     </div>
