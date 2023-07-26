@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: gray;
   }
   
   .formWrapper {
@@ -75,11 +75,11 @@
   button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #2e94f3;
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
   }
   
@@ -93,7 +93,7 @@
     text-align: center;
     margin-top: 15px;
     font-size: 14px;
-    color: #888;
+    color: #000000;
   }
   
   p > a {
