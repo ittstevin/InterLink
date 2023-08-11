@@ -1,39 +1,36 @@
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import "./styles/style.scss";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "./context/AuthContext";
+ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
+import Login from './pages/Login/Login';
+import { UserAuthContextProvider } from './context/userAuthContext';
+import { DrawerContextProvider } from './context/drawerContext';
+
+import ProtectedRoute from './components/ProtectedRoute';
+import { Toaster } from 'react-hot-toast';
+import Chat from './pages/Chat/Chat';
+import Signup from './pages/Signup/Signup';
 
 function App() {
-  const { currentUser } = useContext(AuthContext);
-
-  const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
-      return <Navigate to="/login" />;
-    }
-
-    return children
-  };
-
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/">
+    <Router>
+      <UserAuthContextProvider>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/Signup' element={<Signup />} />
           <Route
-            index
+            path='/chat'
             element={
               <ProtectedRoute>
-                <Home />
+                <DrawerContextProvider>
+                  <Chat />
+                </DrawerContextProvider>
               </ProtectedRoute>
             }
           />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+          {/* <Route path='*' element={<PageNotFound />} /> */}
+        </Routes>
+        <Toaster />
+      </UserAuthContextProvider>
+    </Router>
   );
 }
 

@@ -1,2 +1,2 @@
 # InterLink
-chat app
+Chat Application
